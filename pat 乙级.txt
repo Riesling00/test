@@ -1,0 +1,55 @@
+——8.8
+加强对文件读入的使用，便于调试。
+
+1005 继续(3n+1)猜想   此题用set和vector貌似会段错误
+并查集：
+public int find(int p){
+        //找出分量名称
+        while(p!=id[p]){
+            p = id[p];
+        }
+        return p;
+    }
+    
+    public void union(int p, int q){
+        //将p和q的根节点统一
+        int pRoot,qRoot;
+        pRoot = find(p);
+        qRoot = find(p);
+        if(pRoot==qRoot){
+            return ;
+        }
+        id[pRoot] = qRoot;
+        count--;
+    }
+输出set
+set<int>::iterator it;
+for(it=st.begin();it!=st.end();it++)
+    cout << *it <<endl;
+c.rbegin() 返回一个逆序迭代器，它指向容器c的最后一个元素
+
+c.rend() 返回一个逆序迭代器，它指向容器c的第一个元素前面的位置
+逆向输出：
+for(it=st.rbegin();it!=st.rend();it++){
+        if(it!=st.rend()) cout << *it <<" ";
+        else  cout << *it <<endl;
+    }
+
+代码在pat文件中
+
+
+1009 说反话 
+cin读入（空格 tab 回车）会停止；同时在while（cin>>s）输入结束时可以判断跳出。
+
+
+1010 一元多项式求导  ——此题更多考察输出方式
+关于auto访问 map    注意注意注意：map自带排序！！！！！
+const auto itr2 = map_.begin();
+通常这样更好map<int,int>::iterator it = x.begin();
+
+1029 旧键盘: 可以用int 牵制转换字符为ASCII码 其次atoi和toupper真好用；不过注意格式
+1035 归并与插入  用sort两次可模拟归并一次，插入直接可以由sort模拟
+1039 到底买不买  本题适合消除法，当然开哈希数组也是可以的。
+1066 图像过滤 格式输出最后是换行还是空格的小技巧printf("%03d%c", D, j == N - 1 ? '\n' : ' ');
+1076 Wifi密码 用getline要用getchar吃掉之前的换行符
+
